@@ -1,0 +1,109 @@
+.li_maxWidth {
+  max-width: 1400px;
+}
+.li_font24 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.li_sticky {
+  position: sticky;
+  top: 50px;
+}
+.li_fwb {
+  font-weight: bold;
+}
+.li_filter {
+  font-weight: bold;
+  padding: 5px 15px;
+  margin: 0 15px;
+  border: 1px solid #333;
+  position: relative;
+  .li_genderClick {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    background-color: #fff;
+    // font-size: 30px;
+    width: 100%;
+    height: 100px;
+    z-index: 5;
+    li {
+      text-decoration: none;
+    }
+  }
+}
+
+// -------------分區-----------
+.li_p_tl {
+  .li_spec {
+    font-size: 4rem;
+    font-weight: 900;
+    // padding-top: 150px;
+    text-align: center;
+  }
+}
+
+.li_p_tr {
+  .li_topBrand {
+    font-size: 1.5rem;
+  }
+  .li_topName {
+    font-size: 2rem;
+    font-weight: bold;
+
+    line-height: 2rem;
+  }
+  .li_textDecoration {
+    color: #b0b8bc;
+    &:hover {
+      color: #000;
+      text-decoration-color: #000;
+    }
+  }
+}
+.li_p_tc {
+  .li_specImg {
+    width: 100%;
+  }
+}
+.product_list {
+  margin-top: 100px;
+}
+.li_productCard {
+  .li_brand {
+    line-height: 2rem;
+    font-size: 1.25rem;
+    color: #000;
+  }
+  .li_productName {
+    line-height: 2.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #000;
+  }
+  .li_price {
+    font-weight: bold;
+    line-height: 2rem;
+    font-size: 1.25rem;
+    color: #000;
+  }
+}
+.li_productCard__link {
+  font-size: 0px;
+  display: block;
+  position: absolute;
+  inset: 0px;
+  z-index: 1;
+}
+.li_iconHeart {
+  z-index: 5;
+}
+.li_productCard {
+  .li_brand {
+    position: relative;
+    .li_cardHeart {
+      position: absolute;
+      top: -30px;
+    }
+  }
+}
