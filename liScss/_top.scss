@@ -1,11 +1,16 @@
 .li_top {
-  padding: 0 5%;
+  // padding: 0 5%;
   .li_left {
     .carousel-control-prev {
       color: #000;
     }
+    .li_zoomIn {
+      cursor: url(./../../pages/products/ProductImage/zoomIn.svg), pointer;
+    }
   }
   .li_right {
+    // padding: 0 5%;
+
     h1 {
       // font-size: 1.75rem;
       line-height: 3rem;
@@ -49,7 +54,17 @@
           }
           &:focus {
             background-color: $team-secondary;
-            border: 1px solid $team-secondary;
+            border: 1px solid transparent;
+            color: #fff;
+          }
+        }
+        .li_inStock {
+          background-color: $team-secondary;
+          border: 1px solid transparent;
+          color: #fff;
+          &:hover {
+            background-color: $team-secondary;
+            border: 1px solid transparent;
             color: #fff;
           }
         }
@@ -107,13 +122,38 @@
         border-bottom: 1px solid #000;
         border-top: 1px solid #000;
       }
+      .li_addReview {
+        border-bottom: 1px solid #000;
+      }
     }
   }
+}
+.li_memberReview {
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
 }
 .li_bgc {
   background-color: rgba(0, 0, 0, 0.6);
 }
-
+.li_detailImg {
+  // width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  pointer-events: auto;
+}
+.li_popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1035;
+}
+.li_fadeIn {
+  animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 0.2s; /* don't forget to set a duration! */
+}
 @media (min-width: 576px) {
 }
 
@@ -126,8 +166,9 @@
   .li_top {
     .li_right {
       width: 400px;
-      // min-width: 330px;
-      padding-left: 40px;
+      min-width: 330px;
+      padding: 0 40px;
+      // max-width: 400px;
     }
   }
 }

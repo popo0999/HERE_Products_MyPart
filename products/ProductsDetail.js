@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import Top from './ProductsDetail/Top'
 // import Down from './productsDetail/Down'
+import BreadCrumb from './BreadCrumb'
+import SpinnerInProducts from './SpinnerInProducts'
 import Like from './ProductsDetail/Like'
+import LikeS from './ProductsDetail/Like/LikeS'
 import axios from 'axios'
 import { API_HOST } from './../../config'
 
 const ProductsDetail = (props) => {
-  const { user, setUser, showLogin, setShowLogin } = props
+  const { user, setUser, showLogin, setShowLogin, itemNumber, setItemNumber } =
+    props
+  const [loading, setLoading] = useState(true)
   const [detail, setDetail] = useState({})
   const [color, setColor] = useState([])
   const [size, setSize] = useState({})
@@ -61,9 +66,29 @@ const ProductsDetail = (props) => {
       return setIsLiked(false)
     }
   }, [like, user])
+  useEffect(() => {
+    const timerFunc = setTimeout(() => {
+      setLoading(false)
+    }, 1000)
 
-  return (
-    <div>
+    return () => clearTimeout(timerFunc)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  const path = [
+    { name: 'home', url: '/', id: 1 },
+    { name: '精選推薦', url: '/products', id: 2 },
+    {
+      name: `${detail.name}`,
+      url: `/products/productsDetail/${detail.sid}/${detail.default}`,
+      id: 3,
+    },
+  ]
+
+  return loading ? (
+    <SpinnerInProducts loading={loading} name={'li_spinner'} />
+  ) : (
+    <div className="container-fluid mt-4 li_top li_maxWidth li_mb300">
+      <BreadCrumb path={path} />
       <Top
         sid={sid}
         detail={detail}
@@ -88,10 +113,20 @@ const ProductsDetail = (props) => {
         setUser={setUser}
         showLogin={showLogin}
         setShowLogin={setShowLogin}
+        itemNumber={itemNumber}
+        setItemNumber={setItemNumber}
       />
-
       {/* <Down /> */}
       <Like
+        detail={detail}
+        sid={sid}
+        setSid={setSid}
+        setSelectColor={setSelectColor}
+        selectColor={selectColor}
+        user={user}
+        setShowLogin={setShowLogin}
+      />
+      <LikeS
         detail={detail}
         sid={sid}
         setSid={setSid}
